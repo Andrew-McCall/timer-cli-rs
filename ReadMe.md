@@ -28,7 +28,7 @@ timer <duration> <*command>
 - `1h`, `2hr`, `3hours`
 - `1d`, `2days`
 
-If no duration is provided, defaults to **10 seconds**.
+If no duration is provided, defaults to **10 seconds**.  
 Maximum supported duration: **10 years**.
 
 ## Install
