@@ -40,6 +40,11 @@ timer 2h      # 2 hours
 timer 1d      # 1 day
 ```
 
+## Install
+```bash 
+cargo install timer-cli-rs
+```
+
 ## Build
 
 ```bash
