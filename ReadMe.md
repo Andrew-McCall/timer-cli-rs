@@ -6,7 +6,7 @@ A simple command-line countdown timer written in Rust.
 
 ## Features
 
-- Accepts human-friendly duration formats (e.g., `500ms`, `10s`, `5m`, `2h`, `1d`).
+- Accepts human-friendly duration formats (e.g. `10s`, `5m`, `2h`, `1d`).
 - Defaults to 10 seconds if no duration is provided.
 - Caps maximum duration at 10 years.
 - Displays time remaining in `HH:MM:SS`.
@@ -23,7 +23,6 @@ timer <duration> <*command>
 
 ### Duration format
 
-- `500ms`, `1500msec`
 - `10s`, `30sec`, `60seconds`
 - `5m`, `2min`, `10minutes`
 - `1h`, `2hr`, `3hours`
@@ -49,7 +48,6 @@ cargo build --release
 ## Examples
 
 ```bash
-timer 500ms 'echo "500 miliseconds"' 
 timer 10s   'echo "10 seconds"'  
 timer 5m    'echo "5 minutes"'  
 timer 2h    'echo "2 hours'  

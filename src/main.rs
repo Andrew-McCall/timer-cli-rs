@@ -25,10 +25,6 @@ fn parse_duration_arg(arg: &str) -> Result<Duration, String> {
 
     let seconds = match unit_part {
         "" | "s" | "sec" | "secs" | "second" | "seconds" => number,
-        "ms" | "msec" | "msecs" => {
-            let secs = number / 1000;
-            secs
-        }
         "m" | "min" | "mins" | "minute" | "minutes" => number.saturating_mul(60),
         "h" | "hr" | "hrs" | "hour" | "hours" => number.saturating_mul(60 * 60),
         "d" | "day" | "days" => number.saturating_mul(60 * 60 * 24),
