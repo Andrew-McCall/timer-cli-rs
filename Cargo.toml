@@ -1,6 +1,18 @@
 [package]
-name = "timer"
-version = "0.1.0"
-edition = "2024"
+name = "timer-cli-rs"
+version = "1.0.0"
+edition = "2021"
+description = "A super lightweight command-line countdown timer."
+license = "MIT"
+repository = "https://github.com/Andrew-McCall/timer"
+readme = "ReadMe.md"
+documentation = "https://github.com/Andrew-McCall/timer#readme"
+categories = ["command-line-utilities", "development-tools", "date-and-time"]
+keywords = ["timer", "countdown", "cli", "time", "productivity", "utility"]
 
 [dependencies]
+
+[[bin]]
+name = "timer"
+path = "src/main.rs"
+

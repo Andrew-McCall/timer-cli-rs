@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "timer"
-version = "0.1.0"
+name = "timer-cli-rs"
+version = "1.0.0"
