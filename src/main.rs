@@ -89,7 +89,7 @@ fn countdown(d: Duration) -> io::Result<()> {
 
 fn print_usage_and_default() {
     eprintln!("Usage: timer <duration> <*command>");
-    eprintln!("Examples: timer 10s, timer 5m, timer 2h, timer 1d \"echo 'One day has passed...'\"");
+    eprintln!("Examples: `timer 10s`, `timer 5m`, `timer 2h`, `timer 1d /path/to/script.sh`");
     eprintln!(
         "No duration provided — defaulting to {} seconds.",
         DEFAULT_SECONDS

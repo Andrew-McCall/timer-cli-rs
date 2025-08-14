@@ -1,4 +1,4 @@
-# Timer CLI
+# Command-Line Timer 
 
 ## Description
 
