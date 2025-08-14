@@ -8,7 +8,7 @@ repository = "https://github.com/Andrew-McCall/timer"
 readme = "ReadMe.md"
 documentation = "https://github.com/Andrew-McCall/timer#readme"
 categories = ["command-line-utilities", "development-tools", "date-and-time"]
-keywords = ["timer", "countdown", "cli", "time", "productivity", "utility"]
+keywords = ["timer", "countdown", "timer", "productivity", "utility"]
 
 [dependencies]
 
