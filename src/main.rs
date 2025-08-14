@@ -101,42 +101,39 @@ fn print_usage_and_default() {
 }
 
 fn run_command(args: &[String]) -> std::io::Result<()> {
-    let mut cmd_iter = args.iter();
-    let program = cmd_iter.next().ok_or_else(|| {
-        std::io::Error::new(std::io::ErrorKind::InvalidInput, "No command provided")
-    })?;
+    let program = match args.first() {
+        Some(p) => p,
+        None => return Ok(()),
+    };
 
-    let err = Command::new(program).args(cmd_iter).exec();
-
-    Err(err)
+    Err(Command::new(program).args(&args[1..]).exec())
 }
 
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    let (dur, has_command) = if args.len() < 2 {
+    let dur = if args.len() < 2 {
         print_usage_and_default();
-        (Duration::from_secs(DEFAULT_SECONDS), false)
+        Duration::from_secs(DEFAULT_SECONDS)
     } else {
-        (
-            match parse_duration_arg(&args[1]) {
-                Ok(dur) => dur,
-                Err(e) => {
-                    eprintln!(
-                        "Error parsing duration: {}. Defaulting to {} seconds.",
-                        e, DEFAULT_SECONDS
-                    );
-                    Duration::from_secs(DEFAULT_SECONDS)
-                }
-            },
-            true,
-        )
+        match parse_duration_arg(&args[1]) {
+            Ok(dur) => dur,
+            Err(e) => {
+                eprintln!(
+                    "Error parsing duration: {}. Defaulting to {} seconds.",
+                    e, DEFAULT_SECONDS
+                );
+                Duration::from_secs(DEFAULT_SECONDS)
+            }
+        }
     };
 
     if let Err(e) = countdown(dur) {
         eprintln!("I/O error during countdown: {}", e);
-    } else if has_command {
-        if let Err(e) = run_command(&args[2..]) {
+    } else if args.len() > 2 {
+        let cmd_args = &args[2..];
+        println!("{}", cmd_args.join(" "));
+        if let Err(e) = run_command(cmd_args) {
             eprintln!("Failed to execute command: {}", e);
         }
     }
