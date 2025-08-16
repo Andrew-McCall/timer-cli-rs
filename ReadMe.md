@@ -32,11 +32,22 @@ If no duration is provided, defaults to **10 seconds**.
 Maximum supported duration: **10 years**.
 
 ## Install
+
+### Cargo Install
+
 ```bash 
 cargo install timer-cli-rs
 ```
 
-## Build
+### Package Manager (Arch)
+
+```bash
+git clone https://github.com/Andrew-McCall/timer-cli-rs.git
+cd timer-cli-rs
+makepkg -si
+```
+
+## Build from Source
 
 ```bash
 git clone https://github.com/Andrew-McCall/timer-cli-rs.git
